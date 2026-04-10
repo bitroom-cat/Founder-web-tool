@@ -41,6 +41,7 @@
             margin: 0;
             padding: 40px 20px;
             box-sizing: border-box;
+            flex-direction: column;
         }
 
         .container {
@@ -324,6 +325,30 @@
             border: 1px solid #bbf7d0;
         }
 
+        /* --- FIX: PERFECTLY CENTERED MODAL --- */
+.modal-content {
+    background-color: #fffbf1; 
+    
+    /* The Magic Centering Trick */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0; /
+
+   
+    width: 90%; 
+    max-width: 800px;
+    padding: 30px 40px;
+    border: 1px solid #eedfc2;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #332d2d;
+    max-height: 80vh;
+    overflow-y: auto; 
+}
+
         /* --- MOBILE RESPONSIVENESS (Screens smaller than iPads) --- */
 @media screen and (max-width: 768px) {
     
@@ -363,22 +388,27 @@
     .log-days li { font-size: 14px; }
 }
 
+/* --- UPDATED: FLOATING BUTTON BELOW CARD --- */
 .log-button-container {
-    text-align: center;
-    margin: 40px 20px;
+    display: flex;
+    justify-content: center;   /* Perfectly centers the button horizontally */
+    width: 100%;
+    margin-top: 30px;          /* Pushes it down into the dotted space */
+    margin-bottom: 50px;       
 }
 
+/* Ensure the button itself isn't stretching weirdly */
 .accent-btn {
     background-color: #e36a6a;
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 14px 32px;        
     font-size: 16px;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 12px rgba(227, 106, 106, 0.2); /* Optional: Adds a soft glow shadow */
 }
 
 .accent-btn:hover {
@@ -608,6 +638,10 @@
                 <li><strong>10:15 AM - Failure & Recovery (Native Dropdowns):</strong> <em>Issue:</em> Standard CSS couldn't override the ugly OS-level styling of native <code>&lt;select&gt;</code> dropdowns to match my new theme. <em>Fix:</em> Built a custom dropdown from scratch using divs and vanilla JS event listeners that silently updates a hidden <code>&lt;input&gt;</code> field. Looks premium, keeps the backend happy.</li>
                 <li><strong>11:50 AM - Final Business Logic Check:</strong> Realized a bootstrapped FoodTech startup cannot afford the Google Maps API like Swiggy. Pivoted the 'Bootstrapped + FoodTech' results away from consumer apps entirely. Mapped them to B2B SaaS models (like Petpooja POS) to prove I understand actual financial survival strategies.</li>
                 <li><strong>12:45 PM - Final Deployment:</strong> Pushed the index.html, CSS, and JS to a new GitHub repository and connected it to Vercel. I chose GitHub over a local CLI push so my commit history is public, proving my workflow. The production URL is live, the engine works flawlessly on mobile, and I have officially submitted the project.</li>
+                <li><strong>1:15 PM - Admin Consultation & UI Integration:</strong> Reached out to the admin regarding the exact placement for the engineering logs. Based on their advice to add it "below the page", I engineered a custom Vanilla JS modal triggered by a floating button. This keeps the primary SaaS tool clean while providing full transparency.</li>
+                <li><strong>1:45 PM - Layout Failures & CSS Debugging:</strong> <em>Issue:</em> Moving the button outside the card broke the Flexbox layout, causing it to stick to the side. Furthermore, the modal snapped to the top-left corner of the screen instead of centering. <em>Fix:</em> Debugged the CSS compiler and found a rogue slash (<code>/</code>) freezing the styles. I removed the illegal character, applied <code>flex-direction: column</code> to force the UI to stack, and implemented "Absolute Translation" (<code>top: 50%, left: 50%, transform: translate(-50%, -50%)</code>) to ensure the modal stays dead-center on every device.</li>
+                <li><strong>2:15 PM - Final Deployment:</strong> Pushed the index.html, CSS, and JS to a new GitHub repository and connected it to Vercel. I chose GitHub over a local CLI push so my commit history is public, proving my workflow. The production URL is live, the engine works flawlessly on mobile, and I have officially submitted the project.</li>
+                
             </ul>
         </div>
     </div>
