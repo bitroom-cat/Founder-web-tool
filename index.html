@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startup Architecture Engine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
 
 
@@ -26,8 +27,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";            color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased; 
             -moz-osx-font-smoothing: grayscale;
@@ -324,7 +324,45 @@
             border: 1px solid #bbf7d0;
         }
 
-        /* --- BUTTON STYLES --- */
+        /* --- MOBILE RESPONSIVENESS (Screens smaller than iPads) --- */
+@media screen and (max-width: 768px) {
+    
+    .main-container {
+        width: 95% !important;     
+        padding: 20px 15px;        
+        margin: 20px auto;
+    }
+
+    .log-button-container {
+        margin-top: 25px;
+        padding-top: 20px;
+    }
+    
+    .accent-btn {
+        width: 100%;               
+        padding: 16px;             
+        margin: 0;                 
+    }
+
+    input[type="range"], .custom-dropdown, select {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 20px 15px;
+        max-height: 85vh;
+    }
+
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+    .modal-content h2 { font-size: 22px; }
+    .log-days h3 { font-size: 16px; }
+    .log-days li { font-size: 14px; }
+}
+
 .log-button-container {
     text-align: center;
     margin: 40px 20px;
@@ -358,12 +396,12 @@
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgba(0,0,0,0.6); /* Semi-transparent dark background */
-    backdrop-filter: blur(4px); /* Adds a nice blur to the main page */
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px); 
 }
 
 .modal-content {
-    background-color: #fffbf1; /* Your base color */
+    background-color: #fffbf1; /
     margin: 5% auto; 
     padding: 30px 40px;
     border: 1px solid #eedfc2;
@@ -374,7 +412,7 @@
     font-family: 'Inter', sans-serif;
     color: #332d2d;
     max-height: 80vh;
-    overflow-y: auto; /* Allows scrolling inside the modal */
+    overflow-y: auto; 
 }
 
 /* Close Button */
@@ -409,8 +447,8 @@
 }
 
 .log-days h3 {
-    color: #e36a6a; /* Your accent color */
-    background-color: #fff2d0; /* Your surface color */
+    color: #e36a6a; 
+    background-color: #fff2d0; 
     padding: 10px 15px;
     border-radius: 6px;
     font-size: 18px;
