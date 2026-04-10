@@ -526,14 +526,16 @@
             },
 
             // FINTECH BOOTSTRAPPED - LARGE TEAM (30+ Engineers)
+
+            //corrected
             "fintech-bootstrap-large-low": {
-                stack: "Go (Golang) Core Engine (Kite) + Python/Flask Monolith + Vue.js/Flutter.<br><br><strong>Observation:</strong> <a href='https://zerodha.tech/blog/scaling-with-common-sense/' target='_blank'>Zerodha's CTO Kailash Nadh</a> explicitly states that avoiding 'clever code' and relying on a simple, monolithic foundation allowed a tiny team to scale to 12+ million users.",
-                hosting: "Go, Python, Java, JS, Dart, PostgreSQL, ClickHouse, Redis, SSDB, ScyllaDB, DuckDB, MySQL, Nginx, HAProxy, Kong, NATS, Kafka, Redpanda, Benthos, Vector, Grafana, VictoriaMetrics, Alertmanager, Sentry, Rundeck, GitLab, Airflow, SaltStack, Nomad, VueJS, Django, Frappe, Flask, Flutter) are self-hosted directly on bare AWS EC2 instances and physical colocation with strictly zero Kubernetes orchestration.<br><a href='https://zerodha.tech/stack/' target='_blank'>Source</a>",
-                integration: "Instant paperless onboarding via <a href='https://partners.digitallocker.gov.in/' target='_blank'>DigiLocker / Aadhaar eKYC API</a> (SEBI mandated).  <br><br><strong>Observation:</strong> <a href='https://zerodha.com/privacy-policy/' target='_blank'> zerodha privacy policy </a> states that they have used this",
-                costDesc: "Calculated via <a href='https://aws.amazon.com/ec2/pricing/' target='_blank'>AWS EC2 Pricing</a>: Running multi-terabyte databases on massive raw EC2 instances (~₹15,000/mo) avoids the 4x to 5x premium of Managed RDS.",
-                costNum: "₹15,000 - ₹30,000 / month (Raw Compute)",
-                flag: "Contrarian Trade-off: The industry demands Kubernetes and Managed Databases. By self-hosting on bare EC2, you save millions in cloud fees, but you trade it with high  DevOps expertise.",
-                source: "<strong>Tech Stack Verified via:</strong> <a href='https://zerodha.tech/stack/' target='_blank'>Zerodha Tech Blog</a>"
+                stack: "Flask/Python Backend + Vanilla JavaScript + SQLite.<br><br><strong>Observation:</strong> When you have dozens of developers but a ₹5,000 budget, you cannot build a cloud-heavy SaaS. You survive by building free, open-source tools—like a lightweight diagramming and flowchart platform—and distributing the codebase directly on GitHub so users host it themselves.",
+                hosting: "100% Free Tiers (Render / GitHub Pages) OR Local PC Execution.",
+                integration: "GitHub Actions (Free CI/CD for public repos) + Local hardware access (Webcams) instead of cloud APIs.",
+                costDesc: "Calculated via Open-Source limits: Instead of paying AWS, the software runs locally on the end-user's machine. If your team is building something like an ID card attendance scanner, you write the OCR algorithm to run on the local PC's CPU using a standard webcam, dropping your monthly cloud processing bill to exactly ₹0.",
+                costNum: "₹0 - ₹5,000 / month (Strictly Domain Names)",
+                flag: "The Sweat Equity Pivot: Mathematically, a large team on a ₹5k budget means payroll is zero (a community lab, hackathon group, or volunteer squad). Your survival depends on completely avoiding paid cloud APIs. Build free tools for students, distribute them via GitHub, and rely strictly on local machine compute.",
+                source: "<strong>Verified via:</strong> Open-Source Community Architectures"
             },
             // FINTECH - THE ILLOGICAL ECONOMICS TRAP (Series A + 100 Devs + ₹5000)
             "fintech-series-a-large-low": {
@@ -671,7 +673,8 @@
                 stack: "Flutter (Mobile) + Go & Node.js Microservices + Redis Pub/Sub.<br><br><strong>Observation:</strong> <a href='https://blog.unacademy.com/scaling-unacademy-8041d8e12470' target='_blank'>Unacademy's Engineering Blog</a> highlights their reliance on Go and Node.js. Traditional monoliths crash under heavy WebSockets; Node/Go are mandatory to handle 50,000+ concurrent live chat messages and polls without latency.",
                 hosting: "AWS EKS (Kubernetes) + MongoDB Atlas (NoSQL).<br><a href='https://stackshare.io/unacademy/unacademy' target='_blank'>Verified Stack Source</a>",
                 integration: "Sub-second Live Interactive Video routing via <a href='https://docs.agora.io/en/' target='_blank'>Agora WebRTC / AWS Media Services</a>.",
-                costDesc: "Calculated via <a href='https://aws.amazon.com/ivs/pricing/' target='_blank'>AWS IVS / WebRTC Pricing</a>: Live video APIs charge ~$3.00 per 1k participant-minutes. A single 1-hour live class with 10,000 students generates 600,000 minutes, costing ~$1,800 (₹1.5 Lakhs) in pure bandwidth. Scaled to daily classes, this highly variable monthly bill easily exceeds ₹10,00,000+.",                costNum: "₹1,50,000+ / month (Dominated by Video Bandwidth)",
+                costDesc: "Calculated via <a href='https://aws.amazon.com/ivs/pricing/' target='_blank'>AWS IVS / WebRTC Pricing</a>: Live video APIs charge ~$3.00 per 1k participant-minutes. A single 1-hour live class with 10,000 students generates 600,000 minutes, costing ~$1,800 (₹1.5 Lakhs) in pure bandwidth. Scaled to daily classes, this highly variable monthly bill easily exceeds ₹10,00,000+.",                
+                costNum: "₹1,50,000+ / month (Dominated by Video Bandwidth)",
                 flag: "Database Constraint (SQL Trap): Do not use a strict SQL database for your course catalog. Curriculums and live-class metadata change constantly. You must use the flexible document schema of a NoSQL database (MongoDB) to avoid breaking your app during updates.",
                 source: "<strong>Verified via:</strong> <a href='https://blog.unacademy.com/' target='_blank'>Unacademy Tech Logs</a>"
             },
@@ -680,6 +683,7 @@
                 stack: "Python/Django Monolith + Native Android (Educator App).<br><br><strong>Observation:</strong> <a href='https://medium.com/p/c7efe05077cf' target='_blank'>Unacademy's historical footprint</a> shows that early EdTechs should never start with Live Streaming. Their seed-stage platform was strictly VOD (Video on Demand) where educators recorded offline and uploaded, allowing a simple Python monolith to handle the CRUD operations.",
                 hosting: "AWS EC2 + Massive AWS S3 Buckets (Video Storage) + AWS CloudFront (CDN). <br><a href='https://stackshare.io/unacademy/unacademy' target='_blank'> Stack Source</a>",
                 integration: "Initial user acquisition via <a href='https://developers.google.com/youtube/v3' target='_blank'>YouTube Data API</a> (Syndicating content back to their massive YouTube subscriber base).",
+                costnum : "₹90,000+ / month (Dominated by CDN Bandwidth)",
                 costDesc: "Calculated via <a href='https://aws.amazon.com/cloudfront/pricing/' target='_blank'>AWS CloudFront Pricing</a> (Mumbai): CDN data egress costs ~$0.11 per GB. A 1-hour HD video consumes ~1GB. If just 1,000 active students watch 10 hours a month, your variable CDN bandwidth bill instantly hits $1,100 (₹90,000+), completely eclipsing your basic EC2 server costs.",
                 flag: "Architectural Ceiling: This architecture is incredibly stable for pre-recorded videos. However, if you attempt to launch 'Live Classes' on this Python monolith, the synchronous servers will crash immediately. You will be forced to rewrite in Node.js/Go.",
                 source: "<strong>Verified via:</strong> Unacademy Early Stage Product Case Studies"
@@ -689,6 +693,7 @@
                 stack: "Python/Django Monolith + Native Android (Educator App).<br><br><strong>Observation:</strong> <a href='https://medium.com/p/c7efe05077cf' target='_blank'>Unacademy's historical footprint</a> shows that early EdTechs should never start with Live Streaming. Their seed-stage platform was strictly VOD (Video on Demand) where educators recorded offline and uploaded, allowing a simple Python monolith to handle the CRUD operations.",
                 hosting: "AWS EC2 + Massive AWS S3 Buckets (Video Storage) + AWS CloudFront (CDN). <br><a href='https://stackshare.io/unacademy/unacademy' target='_blank'> Stack Source</a>",
                 integration: "Initial user acquisition via <a href='https://developers.google.com/youtube/v3' target='_blank'>YouTube Data API</a> (Syndicating content back to their massive YouTube subscriber base).",
+                costnum : "₹90,000+ / month (Dominated by CDN Bandwidth)",
                 costDesc: "Calculated via <a href='https://aws.amazon.com/cloudfront/pricing/' target='_blank'>AWS CloudFront Pricing</a> (Mumbai): CDN data egress costs ~$0.11 per GB. A 1-hour HD video consumes ~1GB. If just 1,000 active students watch 10 hours a month, your variable CDN bandwidth bill instantly hits $1,100 (₹90,000+), completely eclipsing your basic EC2 server costs.",
                 flag: "Architectural Ceiling: This architecture is incredibly stable for pre-recorded videos. However, if you attempt to launch 'Live Classes' on this Python monolith, the synchronous servers will crash immediately. You will be forced to rewrite in Node.js/Go.",
                 source: "<strong>Verified via:</strong> Unacademy Early Stage Product Case Studies"
@@ -703,8 +708,8 @@
                 hosting: "AWS EKS (Kubernetes) + Amazon RDS (MySQL) + Redis (ElastiCache).<br><a href='https://hostingjournalist.com/video/practo-scaling-microservices-with-kubernetes-on-aws769832693695/' target='_blank'>Verified K8s Source</a>",
                 integration: "HIPAA & ABDM compliant data pipelines via AWS Macie and Encrypted S3. <a href='https://www.practo.com/providers/abdm' target='_blank'>ABDM Compliance</a>",
                 costDesc: "Calculated via <a href='https://calculator.aws/#/' target='_blank'>AWS Pricing Calculator</a> (Mumbai): RDS MySQL Multi-AZ db.m5.2xlarge ($776) + EKS Control Plane & 5x EC2 Worker Nodes ($693) + Security/WAF ($400). Total exceeds $2,000 USD.",
-                costNum: "₹1,70,000+ / month",
-                flag: "Database Trap (The Redis Persistence Fallacy): Do not use Redis to persist normalized user accounts just to avoid writing SQL migrations. As Practo learned the hard way in 2015, Redis 'BGSAVE' operations will block the thread and crash your API response times as patient data grows. Use AWS RDS.",
+                costNum: "₹1,00,000+ / month (production model)",
+                flag: "Database Trap (The Redis Persistence Fallacy): Do not use Redis to persist normalized user accounts just to avoid writing SQL migrations. As Practo learned the hard way in 2015, Redis 'BGSAVE' operations will block the thread and crash your API response times as patient data grows. Use AWS RDS. Also this ammount is estimated from case study of practo .",
                 source: "<strong>Verified via:</strong> Practo Zero-Downtime Migration Case Study"
             },
 
