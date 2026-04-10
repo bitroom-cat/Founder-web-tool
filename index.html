@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startup Architecture Engine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> 
     <style>
 
 
@@ -63,6 +63,7 @@
         .header h1 {
             font-size: 24px;
             margin: 0 0 8px 0;
+            
         }
 
         .gradient-text {
@@ -323,6 +324,112 @@
             border: 1px solid #bbf7d0;
         }
 
+        /* --- BUTTON STYLES --- */
+.log-button-container {
+    text-align: center;
+    margin: 40px 20px;
+}
+
+.accent-btn {
+    background-color: #e36a6a;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.accent-btn:hover {
+    background-color: #cf5b5b;
+    transform: translateY(-2px);
+}
+
+/* --- MODAL STYLES --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); /* Semi-transparent dark background */
+    backdrop-filter: blur(4px); /* Adds a nice blur to the main page */
+}
+
+.modal-content {
+    background-color: #fffbf1; /* Your base color */
+    margin: 5% auto; 
+    padding: 30px 40px;
+    border: 1px solid #eedfc2;
+    width: 90%; 
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-family: 'Inter', sans-serif;
+    color: #332d2d;
+    max-height: 80vh;
+    overflow-y: auto; /* Allows scrolling inside the modal */
+}
+
+/* Close Button */
+.close-btn {
+    color: #e36a6a;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #cf5b5b;
+    text-decoration: none;
+}
+
+/* Modal Typography */
+.modal-content h2 {
+    margin-top: 0;
+    color: #332d2d;
+    font-size: 26px;
+}
+
+.modal-subtitle {
+    color: #665b5b;
+    font-size: 15px;
+    margin-bottom: 25px;
+    border-bottom: 2px dashed #eedfc2;
+    padding-bottom: 15px;
+}
+
+.log-days h3 {
+    color: #e36a6a; /* Your accent color */
+    background-color: #fff2d0; /* Your surface color */
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+.log-days ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.log-days li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 15px;
+    padding-left: 15px;
+    border-left: 3px solid #eedfc2;
+}
+
         .text-small { font-size: 13px !important; color: var(--text-secondary); margin-bottom: 10px !important; }
 
         .red-flag-card {
@@ -427,6 +534,46 @@
             <button id="reset-btn" class="btn btn-secondary">Analyze Another Scenario</button>
         </div>
     </div>
+
+    <div class="log-button-container">
+    <button id="viewLogsBtn" class="accent-btn">View Engineering Logs</button>
+</div>
+
+<div id="logsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Engineering Decision Log</h2>
+        <p class="modal-subtitle">you can see the code at <a href="https://github.com/bitroom-cat/Founder-web-tool" target="_blank">GitHub Repo</a></p>
+
+        <div class="log-days">
+            <h3>Day 1: Strategy & Deep Research (April 8)</h3>
+            <ul>
+                <li><strong>4:30 PM - Initial Planning:</strong> Started analyzing the problem. The strict "not assumed, proved" constraint and the "no React/frameworks" rule felt overwhelming at first.</li>
+                <li><strong>5:15 PM - Roadmapping:</strong> To avoid getting stuck, I broke the project into 3 strict phases: 1. Deep Research (finding proof), 2. Vanilla UI Design, 3. Core JS Logic mapping.</li>
+                <li><strong>8:15 PM - Startup Deep Dive:</strong> Spent hours hunting through engineering blogs for CRED, Practo, and Swiggy. Found exactly how CRED uses Go for speed and Practo uses AWS for HIPAA compliance. Also locked in my "contrarian" setup: pitching a Django Monolith for early-stage startups instead of over-hyped microservices.</li>
+            </ul>
+
+            <h3>Day 2: Core Coding, Failures & Breakthroughs (April 9)</h3>
+            <ul>
+                <li><strong>10:00 AM - Prototyping:</strong> Built the barebones HTML/CSS form. Wiring up logic without React state management is a mental shift, but the core engine is successfully grabbing input values.</li>
+                <li><strong>11:30 AM - Aha Moment (The Timeline Pivot):</strong> I struggled with how to map enough unique combinations with only a few startups. Breakthrough: I don't need different companies; I need to map their lifecycle. I restructured the JS dictionary to show Zerodha's Day 1 bootstrapped stack vs. their current Enterprise stack.</li>
+                <li><strong>2:15 PM - Data Mapping:</strong> Manually connecting Swiggy's massive Python/PySpark architecture to the "Large Team / High Budget" slider logic. Tedious, but it works.</li>
+                <li><strong>5:30 PM - Failure & Recovery (DOM Rendering):</strong> <em>Issue:</em> Trying to render output cards dynamically using endless <code>document.createElement</code> lines became messy and unreadable. <em>Fix:</em> Scrapped it and refactored the JS to use template literals and <code>.innerHTML</code>. This made the code cleaner and allowed me to embed clickable proof links.</li>
+                <li><strong>7:30 PM - Failure & Recovery (Budget Logic):</strong> <em>Issue:</em> A simple binary "High/Low" budget was recommending ₹1 Lakh architectures to founders with only ₹50k. <em>Fix:</em> Rewrote the JS classification algorithm into a 3-tier system (Low: &lt;40k, Medium: 40k-99k, High: 100k+). Now the engine prevents dangerous over-provisioning.</li>
+                <li><strong>9:00 PM - Handling Edge Cases:</strong> What happens if a user inputs 100 devs on a ₹5,000 budget? Instead of writing boring JS constraints to lock the sliders, I added "Financial Misalignment Traps" to the dictionary. The UI now actively warns the founder about runway burn and API bankruptcy.</li>
+            </ul>
+
+            <h3>Day 3: UI Polish & Final Deployment (April 10)</h3>
+            <ul>
+                <li><strong>8:15 AM - Upgrading Inputs:</strong> Scrapped generic dropdowns for custom <code>&lt;input type="range"&gt;</code> sliders. Wrote JS middleware to seamlessly sort raw numbers (like 45 devs) into my backend categories.</li>
+                <li><strong>9:30 AM - Color Theory:</strong> Applied the 70-20-10 UI rule. Used a warm, custom palette (#fffbf1 base, #fff2d0 surface, #e36a6a accents) to make it look like a premium SaaS product instead of a college assignment. Ensured all text is WCAG accessible.</li>
+                <li><strong>10:15 AM - Failure & Recovery (Native Dropdowns):</strong> <em>Issue:</em> Standard CSS couldn't override the ugly OS-level styling of native <code>&lt;select&gt;</code> dropdowns to match my new theme. <em>Fix:</em> Built a custom dropdown from scratch using divs and vanilla JS event listeners that silently updates a hidden <code>&lt;input&gt;</code> field. Looks premium, keeps the backend happy.</li>
+                <li><strong>11:50 AM - Final Business Logic Check:</strong> Realized a bootstrapped FoodTech startup cannot afford the Google Maps API like Swiggy. Pivoted the 'Bootstrapped + FoodTech' results away from consumer apps entirely. Mapped them to B2B SaaS models (like Petpooja POS) to prove I understand actual financial survival strategies.</li>
+                <li><strong>12:45 PM - Final Deployment:</strong> Pushed the index.html, CSS, and JS to a new GitHub repository and connected it to Vercel. I chose GitHub over a local CLI push so my commit history is public, proving my workflow. The production URL is live, the engine works flawlessly on mobile, and I have officially submitted the project.</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
     <script>
         // 1. this have taken my most of time but worth it 
@@ -826,5 +973,32 @@
             document.getElementById('form-view').style.display = 'block';
         });
     </script>
+<script>
+    // Get DOM elements
+const modal = document.getElementById("logsModal");
+const btn = document.getElementById("viewLogsBtn");
+const span = document.getElementsByClassName("close-btn")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+    // Optional: Prevent background scrolling when modal is open
+    document.body.style.overflow = "hidden";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// When the user clicks anywhere outside of the modal content, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+}
+</script>
 </body>
 </html>
